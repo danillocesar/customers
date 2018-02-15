@@ -8,25 +8,34 @@
 	<div class="modal-body">
 			<div class="form-row">
 				<div class="form-group col-md-4">
-				    <label for="status">Status</label>
-				    <select class="form-control" id="status" required name="active" [(ngModel)]="customer.active">
+				    <label for="status">Status*</label>
+				    <select class="form-control" id="status" required name="active" [(ngModel)]="customer.active" #active="ngModel" >
 				      <option value="true">Ativo</option>
 				      <option value="false">Inativo</option>
 				    </select>
+				    <div *ngIf="active.invalid && (active.invalid.dirty || active.invalid.touched)" class="errors form-errors">
+		   				Status é obrigatório.
+					</div>
 			    </div>
 			    <div class="form-group col-md-4">
-				    <label for="status">Género</label>
-				    <select class="form-control" id="gender" required name="gender" [(ngModel)]="customer.gender">
+				    <label for="status">Género*</label>
+				    <select class="form-control" id="gender" required name="gender" [(ngModel)]="customer.gender" #gender="ngModel" >
 				      <option value="M">Masculino</option>
 				      <option value="F">Feminino</option>
 				    </select>
+				    <div *ngIf="gender.invalid && (gender.invalid.dirty || gender.invalid.touched)" class="errors form-errors">
+		   				Género é obrigatório.
+					</div>
 			    </div>
 			    <div class="form-group col-md-4">
-				    <label for="status">Tipo de pessoa</label>
-				    <select class="form-control" id="federalIdType" required name="federalIdType" [(ngModel)]="customer.federalIdType">
+				    <label for="status">Tipo de pessoa*</label>
+				    <select class="form-control" id="federalIdType" required name="federalIdType" [(ngModel)]="customer.federalIdType" #federalIdType="ngModel" >
 				      <option value="Physical">Física</option>
 				      <option value="Juridical">Jurídica</option>
 				    </select>
+				    <div *ngIf="federalIdType.invalid && (federalIdType.invalid.dirty || federalIdType.invalid.touched)" class="errors form-errors">
+		   				Tipo de pessoa é obrigatório.
+					</div>
 			    </div>
 		  	</div>
 			<div class="form-row">
