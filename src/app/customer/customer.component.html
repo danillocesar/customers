@@ -1,0 +1,109 @@
+<form id="customerForm" name="customerForm"  novalidate (ngSubmit)="onSubmit()" #customerForm="ngForm">
+	<div class="modal-header">
+		<h4 class="modal-title pull-left">{{title}}</h4>
+	   	<button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+			<span aria-hidden="true">&times;</span>
+	   	</button>
+	</div>
+	<div class="modal-body">
+			<div class="form-row">
+				<div class="form-group col-md-4">
+				    <label for="status">Status</label>
+				    <select class="form-control" id="status" required>
+				      <option>Ativo</option>
+				      <option>Inativo</option>
+				    </select>
+			    </div>
+			    <div class="form-group col-md-4">
+				    <label for="status">Género</label>
+				    <select class="form-control" id="gender" required>
+				      <option>Masculino</option>
+				      <option>Feminino</option>
+				    </select>
+			    </div>
+			    <div class="form-group col-md-4">
+				    <label for="status">Tipo de pessoa</label>
+				    <select class="form-control" id="federalIdType" required>
+				      <option>Física</option>
+				      <option>Jurídica</option>
+				    </select>
+			    </div>
+		  	</div>
+			<div class="form-row">
+				<div class="form-group col-md-4">
+					<label for="nome">Nome*</label> 
+					<input type="text" class="form-control" id="nome" placeholder="Nome Completo.."  name="name" [(ngModel)]="customer.name" #name="ngModel" required>
+					<div *ngIf="name.invalid && (name.dirty || name.touched)" class="errors form-errors">
+		   				Nome é obrigatório.
+					</div>
+				</div>
+				<div class="form-group col-md-4">
+					<label for="E-mail">E-mail*</label> 
+					<input type="email" class="form-control" id="email" placeholder="E-mail.." name="email" [(ngModel)]="customer.email" #email="ngModel" required>
+					<div *ngIf="email.invalid && (email.dirty || email.touched)" class="errors form-errors">
+		   				E-mail é obrigatório.
+					</div>
+				</div>
+				<div class="form-group col-md-4">
+					<label for="E-mail">E-mail de cobrança*</label> 
+					<input type="email" class="form-control" id="email2" placeholder="E-mail de cobrança.." name="email2" [(ngModel)]="customer.emailCollection" #email2="ngModel" required>
+					<div *ngIf="email2.invalid && (email2.dirty || email2.touched)" class="errors form-errors">
+		   				E-mail de cobrança é obrigatório.
+					</div>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-4">
+					<label for="inputAddress">CPF / CNPJ*</label> 
+					<input type="text" class="form-control" id="federalId" placeholder="CPF ou CNPJ.." name="federalId" [(ngModel)]="customer.federalId" #federalId="ngModel" required>
+					<div *ngIf="federalId.invalid && (federalId.dirty || federalId.touched)" class="errors form-errors">
+		   				CPF/CNPJ é obrigatório.
+					</div>
+				</div>
+				<div class="form-group col-md-4">
+					<label for="inputAddress">RG</label> 
+					<input type="text" class="form-control" id="rg" placeholder="Número do RG..">
+				</div>
+				<div class="form-group col-md-4">
+					<label for="inputAddress">Data de Nascimento</label> 
+					<input type="text" class="form-control" id="rg" placeholder="DD/MM/AAAA">
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-3">
+					<label for="inputAddress2">Celular 1*</label> 
+					<input type="text" class="form-control" id="phone1" placeholder="(99) 99999-9999" name="phone" [(ngModel)]="customer.phone" #phone="ngModel" required>
+					<div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="errors form-errors">
+		   				Celular é obrigatório.
+					</div>
+				</div>
+				<div class="form-group col-md-3">
+					<label for="inputAddress2">Celular 2</label> 
+					<input type="text" class="form-control" id="phone2" placeholder="(99) 99999-9999">
+				</div>
+				<div class="form-group col-md-3">
+					<label for="inputAddress2">Telefone Residencial</label> 
+					<input type="text" class="form-control" id="residentialPhone" placeholder="(99) 99999-9999">
+				</div>
+				<div class="form-group col-md-3">
+					<label for="inputAddress2">Telefone Comercial</label> 
+					<input type="text" class="form-control" id="commercialPhone" placeholder="(99) 99999-9999">
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label for="residentialAddress">Endereço Residencial</label> 
+					<input type="text" class="form-control" id="residentialAddress" placeholder="Rua Lauro Linhares...">
+				</div>
+				<div class="form-group col-md-6">
+					<label for="commercialAddress">Endereço Comercial</label> 
+					<input type="text" class="form-control" id="commercialAddress" placeholder="Avenida Rio Branco...">
+				</div>
+			</div>
+			<small id="help" class="form-text text-muted">* Campos obrigatórios</small>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-primary" type="submit" [disabled]="customerForm.invalid">Salvar</button>
+		<button type="button" class="btn btn-default" (click)="bsModalRef.hide()">{{closeBtnName}}</button>
+	</div>
+</form>

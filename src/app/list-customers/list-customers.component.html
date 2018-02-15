@@ -1,0 +1,31 @@
+<div class="list-customer">
+	<h3>Lista de Clientes</h3>
+	<table class="table table-striped table-hover table-sm ">
+	  <thead>
+	    <tr>
+	      <th scope="col">Nome</th>
+	      <th scope="col">CPF/CNPJ</th>
+	      <th scope="col">E-mail</th>
+	      <th scope="col">Celular</th>
+	      <th scope="col">Localização</th>
+	      <th scope="col">Status</th>
+	      <th scope="col">Ações</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr scope="row" *ngFor="let customer of customers">
+	      <td>{{customer.name}}</td>
+	      <td>{{customer.federalId}}</td>
+	      <td>{{customer.email}}</td>
+	      <td>{{customer.phone}}</td>
+	      <td>{{customer.residentialAddress}}</td>
+	      <td>{{customer.active}}</td>
+	      <td>
+	      	<span (click)="deleteCustomer(customer.id)" class="oi oi-trash"></span>
+	      	<span class="oi oi-pencil" (click)="openModal(customer)"></span>
+	      </td>
+	    </tr>
+	  </tbody>
+	</table>
+	<button type="button" class="btn btn-primary" (click)="openModal()">Novo cliente</button>
+</div>
