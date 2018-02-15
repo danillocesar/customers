@@ -56,7 +56,7 @@ export class ListCustomersComponent implements OnInit {
 	openModal(customer) {
 		if(!customer) customer = {};
 		const initialState = {
-      	title: 'Modal with component',
+      	title: 'Cliente',
       	closeBtnName: 'Fechar',
       	customer: customer
     	};

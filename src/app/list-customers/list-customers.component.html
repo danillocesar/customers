@@ -7,7 +7,6 @@
 	      <th scope="col">CPF/CNPJ</th>
 	      <th scope="col">E-mail</th>
 	      <th scope="col">Celular</th>
-	      <th scope="col">Localização</th>
 	      <th scope="col">Status</th>
 	      <th scope="col">Ações</th>
 	    </tr>
@@ -18,8 +17,7 @@
 	      <td>{{customer.federalId}}</td>
 	      <td>{{customer.email}}</td>
 	      <td>{{customer.phone}}</td>
-	      <td>{{customer.residentialAddress}}</td>
-	      <td>{{customer.active}}</td>
+	      <td>{{customer.active?'Ativo':'Inativo'}}</td>
 	      <td>
 	      	<span (click)="deleteCustomer(customer.id)" class="oi oi-trash"></span>
 	      	<span class="oi oi-pencil" (click)="openModal(customer)"></span>

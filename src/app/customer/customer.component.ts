@@ -20,6 +20,7 @@ export class CustomerComponent implements OnInit {
   	}
 
 	onSubmit() {
+		console.log(this.customer)
 		if (this.customerForm.valid) {
 		    this.customerService.insertOrUpdate(this.customer).subscribe((data: ServerResponse) => {
 				if(data.success){
