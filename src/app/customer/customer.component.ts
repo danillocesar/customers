@@ -16,7 +16,7 @@ export class CustomerComponent implements OnInit {
 	customer: Customer;
 	@ViewChild('customerForm') customerForm: any;
   	constructor(private customerService: CustomerService, public bsModalRef: BsModalRef) {
-  		if(this.customer) this.customer = new Customer();
+  		
   	}
 
 	onSubmit() {
@@ -42,6 +42,11 @@ export class CustomerComponent implements OnInit {
 		}
 	}
   ngOnInit() {
+  if(!this.customer.id){ 
+		this.customer.federalIdType = 'Physical';
+		this.customer.active = true;
+		this.customer.gender = 'M';
+	}
   }
 
 }

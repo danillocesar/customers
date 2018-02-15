@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { ListCustomersComponent } from './list-customers/list-customers.component';
 import { CustomerService } from './customer.service';
 import { CustomerComponent } from './customer/customer.component';
-
+import {NgxMaskModule} from 'ngx-mask'
 
 @NgModule({
   declarations: [
@@ -20,6 +20,7 @@ import { CustomerComponent } from './customer/customer.component';
 	HttpModule,
 	FormsModule,
 	ReactiveFormsModule,
+	NgxMaskModule.forRoot(),
 	ModalModule.forRoot()
   ],
   entryComponents: [CustomerComponent],
