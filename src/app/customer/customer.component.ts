@@ -15,7 +15,6 @@ import { ViewChild } from '@angular/core';
 export class CustomerComponent implements OnInit {
 	customer: Customer;
 	@ViewChild('customerForm') customerForm: any;
-	console.log(this.customer)
   	constructor(private customerService: CustomerService, public bsModalRef: BsModalRef) {
   		if(this.customer) this.customer = new Customer();
   	}
